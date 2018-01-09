@@ -20,12 +20,16 @@ const prompt = function(game) {
   while(true) {
 
     const s = await prompt(game);
-    if (game.move(s)) {
+    const result = game.move(s);
+    if (result === true) {
       game.display();
       console.log(`${game.player === 'X' ? 'O' : 'X'} won!`);
       break;
-    } else {
+    } else if (result === 'invalid') {
       console.log('Invalid Move!')
+    } else if (result === 'draw') {
+      console.log('The game is a draw!');
+      break;
     }
   }
 

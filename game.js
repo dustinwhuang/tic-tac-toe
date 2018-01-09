@@ -6,6 +6,7 @@ class Game {
       ['7', '8', '9'],
     ];
     this.player = 'X';
+    this.moves = 0;
   }
 
   display() {
@@ -13,11 +14,17 @@ class Game {
   }
 
   move(s) {
-    if (/[XO]/.test(this.board[Math.floor((s - 1) / 3)][(s - 1) % 3])) {
-      return false;
+    if (s < 1 || s > 9 || /[XO]/.test(this.board[Math.floor((s - 1) / 3)][(s - 1) % 3])) {
+      return 'invalid';
     } else {
       this.board[Math.floor((s - 1) / 3)][(s - 1) % 3] = this.player;
       this.player = this.player === 'X' ? 'O' : 'X';
+    }
+
+    this.moves++;
+
+    if (this.moves > 8) {
+      return 'draw';
     }
 
     return this.checkWinner();
