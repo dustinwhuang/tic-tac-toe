@@ -8,9 +8,9 @@ const rl = readline.createInterface({
 class Game {
   constructor() {
     this.board = [
-      ['1','2','3'],
-      ['4','5','6'],
-      ['7','8','9'],
+      ['1', '2', '3'],
+      ['4', '5', '6'],
+      ['7', '8', '9'],
     ];
     this.player = 'X';
   }
@@ -31,7 +31,21 @@ class Game {
   }
 
   checkWinner() {
-    return this.board.some((row) => row[0] === row[1] && row[1] === row[2]);
+    const patterns = [
+      [[0, 0], [0, 1], [0, 2]],
+      [[1, 0], [1, 1], [1, 2]],
+      [[2, 0], [2, 1], [2, 2]],
+      [[0, 0], [1, 0], [2, 0]],
+      [[0, 1], [1, 1], [2, 1]],
+      [[0, 2], [1, 2], [2, 2]],
+      [[0, 0], [1, 1], [2, 2]],
+      [[0, 2], [1, 1], [2, 0]],
+    ];
+
+    return patterns.some(([a, b, c]) => (
+      this.board[a[0]][a[1]] === this.board[b[0]][b[1]]
+      && this.board[b[0]][b[1]] === this.board[c[0]][c[1]]
+    ));
   }
 }
 
