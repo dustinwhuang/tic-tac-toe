@@ -1,0 +1,24 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.0",
+  "description": "Tic Tac Toe",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dustinwhuang/tic-tac-toe.git"
+  },
+  "keywords": [
+    "tic",
+    "tac",
+    "toe"
+  ],
+  "author": "Dustin Huang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dustinwhuang/tic-tac-toe/issues"
+  },
+  "homepage": "https://github.com/dustinwhuang/tic-tac-toe#readme"
+}
